@@ -19,7 +19,7 @@ myButton.addEventListener('click', function() {
         isChanged = false;
     }
 });
-// 3. Live API Fetch Feature (Funny Jokes!)
+// 3. Live API Fetch Feature (JokeAPI)
 const fetchBtn = document.querySelector('#fetch-btn');
 const factDisplay = document.querySelector('#fact-display');
 
@@ -27,11 +27,11 @@ fetchBtn.addEventListener('click', async () => {
     factDisplay.textContent = 'Loading a funny joke... 😂';
     
     try {
-        const response = await fetch('https://official-joke-api.appspot.com/random_joke');
+        const response = await fetch('https://v2.jokeapi.dev/joke/Any?type=single');
         const data = await response.json();
         
-        // This combines the setup and punchline into the paragraph
-        factDisplay.textContent = `${data.setup} — ${data.punchline}`;
+        // This API returns a single-line joke in data.joke
+        factDisplay.textContent = `"${data.joke}"`;
     } catch (error) {
         factDisplay.textContent = 'Oops! Could not load jokes. Check your internet connection.';
         console.error('Fetch error:', error);
