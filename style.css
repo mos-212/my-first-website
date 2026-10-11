@@ -26,7 +26,45 @@ button {
     border-radius: 6px;
     cursor: pointer;
 }
-
 button:hover {
     background-color: #7dd3fc;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 1.5rem;
+}
+
+.feature-box {
+    background-color: rgba(56, 189, 248, 0.1);
+    border: 1px solid var(--accent-color);
+    padding: 0.8rem;
+    border-radius: 6px;
+    flex: 1; /* Makes all boxes share equal width */
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustment for mobile screens */
+@media (max-width: 480px) {
+    .features-container {
+        flex-direction: column; /* Stacks boxes vertically on mobile */
+    }
+}
+.api-section {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    border: 1px dashed var(--accent-color);
+}
+#fact-display {
+    font-size: 0.95rem;
+    font-style: italic;
+    margin: 1rem 0;
+    color: var(--text-color);
+    min-height: 40px;
 }
