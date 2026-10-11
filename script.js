@@ -27,11 +27,10 @@ fetchBtn.addEventListener('click', async () => {
     factDisplay.textContent = 'Loading a funny joke... 😂';
     
     try {
-        // We switch the URL to a free public joke API
         const response = await fetch('https://official-joke-api.appspot.com/random_joke');
         const data = await response.json();
         
-        // This API returns a 'setup' and a 'punchline', so we combine them!
+        // This combines the setup and punchline into the paragraph
         factDisplay.textContent = `${data.setup} — ${data.punchline}`;
     } catch (error) {
         factDisplay.textContent = 'Oops! Could not load jokes. Check your internet connection.';
