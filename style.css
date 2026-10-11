@@ -1,21 +1,16 @@
-/* Change the background color and font for the whole page */
 body {
+    font-family: Arial, sans-serif;
     background-color: #0f172a;
     color: #f8fafc;
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-/* Style your main heading */
-h1 {
+h1, h2 {
     color: #38bdf8;
-    border-bottom: 2px solid #38bdf8;
-    padding-bottom: 10px;
 }
 
-/* Style the button to look modern */
 button {
     background-color: #38bdf8;
     color: #0f172a;
@@ -25,46 +20,36 @@ button {
     font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
 }
+
 button:hover {
-    background-color: #7dd3fc;
+    background-color: #0ea5e9;
 }
 
 .features-container {
     display: flex;
-    justify-content: space-between;
     gap: 15px;
-    margin-top: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .feature-box {
-    background-color: rgba(56, 189, 248, 0.1);
-    border: 1px solid var(--accent-color);
-    padding: 0.8rem;
-    border-radius: 6px;
-    flex: 1; /* Makes all boxes share equal width */
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
     text-align: center;
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: bold;
+    color: #38bdf8;
 }
 
-/* Responsive adjustment for mobile screens */
-@media (max-width: 480px) {
-    .features-container {
-        flex-direction: column; /* Stacks boxes vertically on mobile */
-    }
-}
 .api-section {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    padding: 20px;
     border-radius: 8px;
-    border: 1px dashed var(--accent-color);
-}
-#fact-display {
-    font-size: 0.95rem;
-    font-style: italic;
-    margin: 1rem 0;
-    color: var(--text-color);
-    min-height: 40px;
+    margin-top: 20px;
 }

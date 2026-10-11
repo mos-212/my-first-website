@@ -1,6 +1,8 @@
 // 1. Setup Variables
-const myButton = document.querySelector('#click-btn'); // Adjust selector if your button has a different id/class
-const welcomeText = document.querySelector('#welcome-text'); // Adjust selector to match your text element
+const myButton = document.querySelector('#click-btn');
+const welcomeText = document.querySelector('#welcome-text');
+
+// Track state
 let isChanged = false;
 
 // 2. Button Click Toggle Feature
