@@ -1,15 +1,13 @@
 // 1. Setup Variables
-const myButton = document.querySelector('button');
-const welcomeText = document.querySelector('#welcome-text');
-
-// Track state
+const myButton = document.querySelector('#click-btn'); // Adjust selector if your button has a different id/class
+const welcomeText = document.querySelector('#welcome-text'); // Adjust selector to match your text element
 let isChanged = false;
 
 // 2. Button Click Toggle Feature
 myButton.addEventListener('click', function() {
     if (!isChanged) {
         welcomeText.textContent = 'Welcome! You are here to make a difference!';
-        welcomeText.style.color = '#f70662';
+        welcomeText.style.color = '#38bdf8';
         myButton.textContent = 'Reset Text';
         isChanged = true;
     } else {
@@ -20,7 +18,7 @@ myButton.addEventListener('click', function() {
     }
 });
 
-// 3. Live API Fetch Feature (Random Facts)
+// 3. Live API Fetch Feature
 const fetchBtn = document.querySelector('#fetch-btn');
 const factDisplay = document.querySelector('#fact-display');
 
