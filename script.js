@@ -9,7 +9,7 @@ let isChanged = false;
 myButton.addEventListener('click', function() {
     if (!isChanged) {
         welcomeText.textContent = 'Welcome! You are here to make a difference!';
-        welcomeText.style.color = '#38bdf8';
+        welcomeText.style.color = '#f70662';
         myButton.textContent = 'Reset Text';
         isChanged = true;
     } else {
@@ -19,21 +19,22 @@ myButton.addEventListener('click', function() {
         isChanged = false;
     }
 });
-
-// 3. Live API Fetch Feature
+// 3. Live API Fetch Feature (Funny Jokes!)
 const fetchBtn = document.querySelector('#fetch-btn');
-const factDisplay = document.querySelector('#fact-display'); // Added the semicolon here!
+const factDisplay = document.querySelector('#fact-display');
 
 fetchBtn.addEventListener('click', async () => {
-    factDisplay.textContent = 'Loading a fresh fact from the web... 🌐';
-
+    factDisplay.textContent = 'Loading a funny joke... 😂';
+    
     try {
-        const response = await fetch('https://uselessfacts.jsph.pl/random.json?language=en');
+        // We switch the URL to a free public joke API
+        const response = await fetch('https://official-joke-api.appspot.com/random_joke');
         const data = await response.json();
-
-        factDisplay.textContent = `"${data.text}"`;
+        
+        // This API returns a 'setup' and a 'punchline', so we combine them!
+        factDisplay.textContent = `${data.setup} — ${data.punchline}`;
     } catch (error) {
-        factDisplay.textContent = 'Oops! Could not load data. Check your internet connection.';
+        factDisplay.textContent = 'Oops! Could not load jokes. Check your internet connection.';
         console.error('Fetch error:', error);
     }
 });
