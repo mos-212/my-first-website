@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #0f172a;
-    color: #f8fafc;
+    color: #af2828;
     padding: 40px;
     max-width: 800px;
     margin: 0 auto;
@@ -52,4 +52,65 @@ button:hover {
     padding: 20px;
     border-radius: 8px;
     margin-top: 20px;
+}/* Goal Tracker Section Styles */
+.input-section {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
 }
+
+.input-section input {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    color: #f8fafc;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    width: 60%;
+    margin-right: 10px;
+}
+
+.input-section input:focus {
+    outline: none;
+    border-color: #38bdf8;
+}
+
+#goal-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 15px;
+}
+
+#goal-list li {
+    margin-bottom: 8px;
+    color: #f8fafc;
+}/* Upgrade Feature Section to CSS Grid */
+.features-container {
+    display: grid;
+    /* This automatically creates equal-width columns that fit nicely */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Mobile Responsiveness using Media Queries */
+@media (max-width: 768px) {
+    body {
+        padding: 15px; /* Less padding on small mobile screens */
+    }
+
+    .features-container {
+        /* On mobile, change from 3 columns to 1 single column stack */
+        grid-template-columns: 1fr; 
+    }
+
+    .input-section input {
+        width: 100%; /* Make input take full width on mobile */
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+}
+<ul id="goal-list"></ul>

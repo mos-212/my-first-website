@@ -37,3 +37,37 @@ fetchBtn.addEventListener('click', async () => {
         console.error('Fetch error:', error);
     }
 });
+
+// 4. Dynamic User Input & Local Storage (Goal Tracker)
+const goalInput = document.querySelector('#goal-input');
+const addGoalBtn = document.querySelector('#add-goal-btn');
+const goalList = document.querySelector('#goal-list');
+
+// Load any previously saved goals from browser localStorage
+let savedGoals = JSON.parse(localStorage.getItem('myGoals')) || [];
+
+// Render existing goals onto the screen as an admin list
+function renderGoals() {
+    goalList.innerHTML = ''; // Clear list first so it doesn't duplicate items
+    
+    savedGoals.forEach((goalText, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${index + 1}. ${goalText}`; // Shows numbering like "1. yes"
+        goalList.appendChild(li);
+    });
+}
+
+// Initial render on page load
+renderGoals();
+
+// Add new goal on button click
+addGoalBtn.addEventListener('click', () => {
+    const text = goalInput.value.trim();
+    
+    if (text !== '') {
+        savedGoals.push(text);
+        localStorage.setItem('myGoals', JSON.stringify(savedGoals)); // Save to browser storage
+        renderGoals(); // Refresh the screen list
+        goalInput.value = ''; // Instantly clears the input text box!
+    }
+});
