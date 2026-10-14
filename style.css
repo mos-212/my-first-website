@@ -138,3 +138,17 @@ body.light-mode .input-section input {
     color: #0f172a;
     border-color: #cbd5e1;
 }
+
+/* Force Light Mode Overrides for Testing */
+body.light-mode {
+    background-color: #f1f5f9 !important;
+    color: #0f172a !important;
+}
+
+body.light-mode .features-container,
+body.light-mode .input-section,
+body.light-mode .api-section {
+    background-color: #ffffff !important;
+    border-color: #cbd5e1 !important;
+    color: #0f172a !important;
+}
