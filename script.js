@@ -92,3 +92,28 @@ addGoalBtn.addEventListener('click', () => {
         goalInput.value = ''; // Instantly clears the input text box!
     }
 });
+
+// 5. Dark / Light Mode Theme Toggle
+const themeToggleBtn = document.querySelector('#theme-toggle-btn');
+const currentTheme = localStorage.getItem('theme');
+
+// Check if user previously had light mode enabled
+if (currentTheme === 'light') {
+    document.body.classList.add('light-mode');
+    themeToggleBtn.textContent = 'Toggle Theme ☀️';
+}
+
+themeToggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    
+    let theme = 'dark';
+    if (document.body.classList.contains('light-mode')) {
+        theme = 'light';
+        themeToggleBtn.textContent = 'Toggle Theme ☀️';
+    } else {
+        themeToggleBtn.textContent = 'Toggle Theme 🌙';
+    }
+    
+    // Save preference to localStorage
+    localStorage.setItem('theme', theme);
+});

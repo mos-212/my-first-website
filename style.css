@@ -113,3 +113,28 @@ button:hover {
         margin-right: 0;
     }
 }
+
+/* Light Mode Theme Variables */
+body.light-mode {
+    background-color: #f1f5f9;
+    color: #0f172a;
+}
+
+body.light-mode h1, 
+body.light-mode h2, 
+body.light-mode .feature-box {
+    color: #0284c7;
+}
+
+body.light-mode .feature-box, 
+body.light-mode .api-section, 
+body.light-mode .input-section {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+}
+
+body.light-mode .input-section input {
+    background-color: #f8fafc;
+    color: #0f172a;
+    border-color: #cbd5e1;
+}
