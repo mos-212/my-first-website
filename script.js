@@ -38,7 +38,7 @@ fetchBtn.addEventListener('click', async () => {
     }
 });
 
-// 4. Dynamic User Input & Local Storage (Goal Tracker)
+// 4. Dynamic User Input & Local Storage (Goal Tracker with Delete)
 const goalInput = document.querySelector('#goal-input');
 const addGoalBtn = document.querySelector('#add-goal-btn');
 const goalList = document.querySelector('#goal-list');
@@ -46,15 +46,36 @@ const goalList = document.querySelector('#goal-list');
 // Load any previously saved goals from browser localStorage
 let savedGoals = JSON.parse(localStorage.getItem('myGoals')) || [];
 
-// Render existing goals onto the screen as an admin list
+// Render existing goals onto the screen with a delete button
 function renderGoals() {
     goalList.innerHTML = ''; // Clear list first so it doesn't duplicate items
     
     savedGoals.forEach((goalText, index) => {
         const li = document.createElement('li');
-        li.textContent = `${index + 1}. ${goalText}`; // Shows numbering like "1. yes"
+        li.textContent = `${index + 1}. ${goalText} `;
+
+        // Create a Delete button for each goal
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '❌';
+        deleteBtn.style.marginLeft = '10px';
+        deleteBtn.style.padding = '2px 6px';
+        deleteBtn.style.fontSize = '12px';
+        
+        // Add delete event listener
+        deleteBtn.addEventListener('click', () => {
+            deleteGoal(index);
+        });
+
+        li.appendChild(deleteBtn);
         goalList.appendChild(li);
     });
+}
+
+// Function to remove a goal by its index and update storage
+function deleteGoal(index) {
+    savedGoals.splice(index, 1); // Remove 1 item from the array at that index
+    localStorage.setItem('myGoals', JSON.stringify(savedGoals)); // Update storage
+    renderGoals(); // Refresh the screen
 }
 
 // Initial render on page load
